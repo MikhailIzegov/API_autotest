@@ -1,28 +1,7 @@
-import json
+import random
 import jsonschema
-import allure
-from allure import attachment_type
-import jsonschema
-import requests
-from curlify import to_curl
-from requests import sessions
-
 from apis.catfacts.utils.read_json import load_schema
-
-
-def catfact_api(method, url, **kwargs):
-    base_url = 'https://catfact.ninja'
-    new_url = base_url + url
-    method = method.upper()
-    with allure.step(f'{method} {url}'):
-        with sessions.Session() as session:
-            response = session.request(method=method, url=new_url, **kwargs)
-            message = to_curl(response.request)
-            allure.attach(body=message.encode('utf8'), name='curl',
-                          attachment_type=attachment_type.TEXT, extension='txt')
-            allure.attach(body=json.dumps(response.json(), indent=4).encode('utf8'), name='Response JSON',
-                          attachment_type=attachment_type.JSON, extension='json')
-    return response
+from apis.catfacts.utils.setup_tests import catfact_api
 
 
 def test_get_all_breeds():
@@ -44,61 +23,56 @@ def test_get_breeds_with_limit():
     schema = load_schema('get_all_breeds.json')
     assert response.status_code == 200
     jsonschema.validate(response.json(), schema)
-    assert response.json()['per_page'] == '2'
-
-# def test_get_users_per_page():
-#     response = requests.get(url='https://reqres.in/api/users', params={'per_page': 1})
-#
-#     assert len(response.json()['data']) == 1
-#     assert response.json()['per_page'] == 2
+    assert response.json()['per_page'] == str(limit)
 
 
-# def test_headers():
-#     response = requests.get(url='https://reqres.in/api/users', headers={'Connection': 'keep-alive'})
-#
-#     assert 'Connection' in response.headers
-#     assert response.headers['Connection'] == 'keep-alive'
-#
-#
-# def test_post_user():
-#     response = requests.post(url='https://reqres.in/api/users', json={
-#             "name": "morpheus",
-#             "job": "leader"
-#     }
-#                              )
-#     # assert response.json()['name'] == 'morpheus'
-#     # assert response.json()['job'] == 'leader'
-#
-#     # Валидация схемы
-#     schema = load_schema('post_users.json')
-#     assert response.status_code == 201
-#     jsonschema.validate(response.json(), schema)
-#
-#
-# def test_put_user():
-#     response = requests.put(url='https://reqres.in/api/users/3', json={
-#             "name": "morpheus555",
-#             "job": "zion resident"
-#     })
-#
-#     schema = load_schema('put_users.json')
-#     assert response.status_code == 200
-#     jsonschema.validate(response.json(), schema)
-#
-#
-# def test_delete_user():
-#     user_to_delete = 3
-#     response = requests.delete(url=f'https://reqres.in/api/users/{user_to_delete}')
-#
-#     assert response.status_code == 204
-#
-#
-# def test_patch_user():
-#     response = requests.patch(url='https://reqres.in/api/users/3', json={
-#             "name": "morpheus666"
-#     })
-#
-#     schema = load_schema('get_all_breeds.json')
-#     assert response.status_code == 200
-#     jsonschema.validate(response.json(), schema)
-#
+def test_get_random_fact():
+    response = catfact_api(
+        'get',
+        url='/fact'
+    )
+
+    schema = load_schema('get_random_fact.json')
+    assert response.status_code == 200
+    jsonschema.validate(response.json(), schema)
+
+
+def test_get_random_fact_with_max_length():
+    max_length = random.randint(30, 90)
+    response = catfact_api(
+        'get',
+        url='/fact',
+        params={'max_length': max_length}
+    )
+
+    schema = load_schema('get_random_fact.json')
+    assert response.status_code == 200
+    jsonschema.validate(response.json(), schema)
+    assert response.json()['length'] <= max_length
+
+
+def test_get_list_of_facts():
+    response = catfact_api(
+        'get',
+        url='/facts'
+    )
+
+    schema = load_schema('get_list_of_facts.json')
+    assert response.status_code == 200
+    jsonschema.validate(response.json(), schema)
+
+
+def test_get_list_of_facts_with_params():
+    max_length = random.randint(30, 90)
+    limit = random.randint(3, 15)
+    response = catfact_api(
+        'get',
+        url='/facts',
+        params={'max_length': max_length, 'limit': limit}
+    )
+
+    schema = load_schema('get_list_of_facts.json')
+    assert response.status_code == 200
+    jsonschema.validate(response.json(), schema)
+    for item in response.json()['data']:
+        assert item['length'] <= max_length, f'Длина {item["length"]} превышает максимальное значение {max_length}'

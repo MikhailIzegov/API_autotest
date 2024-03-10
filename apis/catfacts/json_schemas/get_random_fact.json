@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "fact",
+    "length"
+  ],
+  "properties": {
+    "fact": {
+      "type": "string",
+      "examples": [
+        "The life expectancy of cats has nearly doubled since 1930 - from 8 to 16 years."
+      ]
+    },
+    "length": {
+      "type": "integer",
+      "examples": [
+        79
+      ]
+    }
+  },
+  "examples": [
+    {
+      "fact": "The life expectancy of cats has nearly doubled since 1930 - from 8 to 16 years.",
+      "length": 79
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "properties": {
+    "current_page": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact": {
+            "type": "string"
+          },
+          "length": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "fact",
+          "length"
+        ]
+      }
+    },
+    "first_page_url": {
+      "type": "string"
+    },
+    "from": {
+      "type": "integer"
+    },
+    "last_page": {
+      "type": "integer"
+    },
+    "last_page_url": {
+      "type": "string"
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "label",
+          "active"
+        ]
+      }
+    },
+    "next_page_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "path": {
+      "type": "string"
+    },
+    "per_page": {
+      "type": [
+        "string",
+        "integer"
+      ]
+    },
+    "prev_page_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "to": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "current_page",
+    "data",
+    "first_page_url",
+    "from",
+    "last_page",
+    "last_page_url",
+    "links",
+    "next_page_url",
+    "path",
+    "per_page",
+    "prev_page_url",
+    "to",
+    "total"
+  ]
+}
