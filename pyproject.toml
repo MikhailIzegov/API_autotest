@@ -11,8 +11,8 @@ selene = "2.0.0rc8"
 pytest = "^8.1.1"
 allure-pytest = "^2.13.2"
 requests = "^2.31.0"
-jsonschema = "^4.21.1"
 curlify = "^2.2.1"
+jsonschema = "^4.21.1"
 
 
 [build-system]
