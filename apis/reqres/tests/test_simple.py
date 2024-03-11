@@ -1,4 +1,5 @@
 import jsonschema
+import pytest
 import requests
 
 from apis.reqres.utils.read_json import load_schema
@@ -65,3 +66,21 @@ def test_patch_user():
     schema = load_schema('patch_users.json')
     assert response.status_code == 200
     jsonschema.validate(response.json(), schema)
+
+
+@pytest.mark.parametrize('per_page', [6, 12, 11, 13, 3, 4, 24])
+def test_users_list_total_pages_count(per_page):
+    def expected_total_pages(total, per_page_numb):
+        if total <= per_page_numb:
+            exp_total_pages = 1
+        elif total % per_page_numb == 0:
+            exp_total_pages = total // per_page_numb
+        else:
+            exp_total_pages = total // per_page_numb + 1
+        return exp_total_pages
+
+    response = requests.get(url='https://reqres.in/api/users', params={'per_page': per_page})
+    resp_total = response.json()['total']
+
+    assert response.json()['total_pages'] == expected_total_pages(resp_total, per_page)
+
