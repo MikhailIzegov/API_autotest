@@ -1,17 +1,13 @@
-import os
-
 import requests
 from selene import browser, have
 from allure import step
 
 
-login = os.getenv('LOGIN')
-password = os.getenv('PASSWORD')
 WEB_URL = 'http://demowebshop.tricentis.com'
 API_URL = 'http://demowebshop.tricentis.com'  # Зачастую может отличаться от WEB_URL
 
 
-def test_login_through_ui():
+def test_login_through_ui(login, password):
     with step('Open login page'):
         browser.open("http://demowebshop.tricentis.com/login")
 
@@ -23,7 +19,7 @@ def test_login_through_ui():
         browser.element(".account").should(have.text(login))
 
 
-def test_login_through_api_without_fixture():
+def test_login_through_api_without_fixture(login, password):
     with step("Get auth cookie through API"):
         auth_cookie_name = 'NOPCOMMERCE.AUTH'
         url = API_URL + '/login'
