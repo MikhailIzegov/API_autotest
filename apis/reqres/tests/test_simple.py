@@ -1,3 +1,5 @@
+import datetime
+
 import jsonschema
 import pytest
 import requests
@@ -84,3 +86,35 @@ def test_users_list_total_pages_count(per_page):
 
     assert response.json()['total_pages'] == expected_total_pages(resp_total, per_page)
 
+
+def test_update_user_datetime():
+    today_utc = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M')
+    response = requests.put(
+        url='https://reqres.in/api/users/3',
+        json={'name': 'student_name_1', 'job': 'job_name'}
+    )
+
+    assert response.status_code == 200
+    assert response.json()['updatedAt'][:-8] == today_utc  # Проверка с текущим временем до минуты
+
+
+def test_error_email_register_new_user():
+    response = requests.post(
+        url='https://reqres.in/api/register',
+        json={
+            "password": "morpheus_password"
+        }
+                             )
+    assert response.status_code == 400
+    assert response.json()['error'] == 'Missing email or username'
+
+
+def test_error_password_register_new_user():
+    response = requests.post(
+        url='https://reqres.in/api/register',
+        json={
+            "email": "morpheus@example.com"
+        }
+                             )
+    assert response.status_code == 400
+    assert response.json()['error'] == 'Missing password'
