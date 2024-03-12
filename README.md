@@ -5,18 +5,19 @@
 ## :gear: Используемые технологии
 <p  align="center">
   <code><img width="5%" title="Pycharm" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg"></code>
-  <code><img width="5%" title="Python" src="images/logo/python.png"></code>
-  <code><img width="5%" title="Pytest" src="images/logo/pytest.png"></code>
+  <code><img width="5%" title="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"></code>
+  <code><img width="5%" title="Pytest" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytest/pytest-original.svg"></code>
+  <code><img width="5%" title="Poetry" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/poetry/poetry-original.svg"></code>
   <code><img width="5%" title="Requests" src="images/logo/requests.png"></code>
   <code><img width="5%" title="Selene" src="images/logo/selene.png"></code>
-  <code><img width="5%" title="Selenium" src="images/logo/selenium.png"></code>
-  <code><img width="5%" title="GitHub" src="images/logo/github.png"></code>
-  <code><img width="5%" title="Jenkins" src="images/logo/jenkins.png"></code>
-  <code><img width="5%" title="Docker" src="images/logo/docker.png"></code>
+  <code><img width="5%" title="Selenium" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg"></code>
+  <code><img width="5%" title="GitHub" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"></code>
+  <code><img width="5%" title="Jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-line.svg"></code>
+  <code><img width="5%" title="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"></code>
   <code><img width="5%" title="Selenoid" src="images/logo/selenoid.png"></code>
   <code><img width="5%" title="Allure Report" src="images/logo/allure_report.png"></code>
   <code><img width="5%" title="Allure TestOps" src="images/logo/allure_testops.png"></code>
-<!--   <code><img width="5%" title="Jira" src="images/logo/jira.png"></code> -->
+<!--   <code><img width="5%" title="Jira" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original-wordmark.svg"></code> -->
   <code><img width="5%" title="Telegram" src="images/logo/tg.png"></code>
 </p>
 
