@@ -1,6 +1,7 @@
 import requests
 from selene import browser, have
 from allure import step
+from apis.demoshop.utils.get_auth import login, password
 
 
 WEB_URL = 'http://demowebshop.tricentis.com'
