@@ -2,6 +2,7 @@ import requests
 from allure import step
 
 from apis.demoshop.model.demoqa import DemoQA, DemoQAWithSession
+from apis.demoshop.utils.get_auth import login, password
 
 
 def test_add_to_cart_response(login, password):

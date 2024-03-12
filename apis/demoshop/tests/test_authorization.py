@@ -36,7 +36,7 @@ def test_login_through_api_without_fixture(login, password):
     # без инициализации браузера куку не установит!
 
         browser.driver.add_cookie({"name": auth_cookie_name, "value": cookie})  # Код по получению куки можно вынести
-        # в фикстуру и вместо переменной "cookie" можно передать фикстуру из conftest.py
+        # в фикстуру и вместо переменной "cookie" можно передать фикстуру из get_auth.py
 
         browser.open(WEB_URL)  # Особенность Selenium, что
     # еще надо открыть его заново!
