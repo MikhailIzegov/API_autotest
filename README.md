@@ -4,7 +4,7 @@
 
 ## :gear: Используемые технологии
 <p  align="center">
-  <code><img width="5%" title="Pycharm" src="images/logo/pycharm.png"></code>
+  <code><img width="5%" title="Pycharm" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg"></code>
   <code><img width="5%" title="Python" src="images/logo/python.png"></code>
   <code><img width="5%" title="Pytest" src="images/logo/pytest.png"></code>
   <code><img width="5%" title="Requests" src="images/logo/requests.png"></code>
