@@ -10,9 +10,9 @@
   <code><img width="5%" title="Poetry" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/poetry/poetry-original.svg"></code>
   <code><img width="5%" title="Requests" src="images/logo/requests.png"></code>
   <code><img width="5%" title="Selene" src="images/logo/selene.png"></code>
-  <code><img width="5%" title="Selenium" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg"></code>
+  <code><img width="5%" title="Selenium" src="images/logo/selenium.png"></code>
   <code><img width="5%" title="GitHub" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"></code>
-  <code><img width="5%" title="Jenkins" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-line.svg"></code>
+  <code><img width="5%" title="Jenkins" src="images/logo/jenkins.png"></code>
   <code><img width="5%" title="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"></code>
   <code><img width="5%" title="Selenoid" src="images/logo/selenoid.png"></code>
   <code><img width="5%" title="Allure Report" src="images/logo/allure_report.png"></code>
@@ -46,11 +46,58 @@ API + WEB тесты  на платформе `demowebshop` - демонстра
 - [x] `Allure Reports` с вложениями (логи, скриншоты, видео)
 - [x] Отправка результатов тестирования в `Telegram`
 
+<!-- Тест кейсы -->
 
-## :heavy_check_mark: Кратко
-- [x] `API` тесты
-- [x] `Гибридные` тесты (API + WEB)
-- [x] `Параметризованный` запуск тестов
-- [x] Запуск WEB тестов, используя `Jenkins` и `Selenoid`
-- [x] `Allure Reports` с вложениями (логи, скриншоты, видео)
-- [x] Отправка результатов тестирования в `Telegram`
+## :heavy_check_mark: Что проверяют API тесты (reqres.in, catfact.ninja)
+
+- [x] Создание новой сущности/пользователя
+- [x] Обновление сущности/пользователя
+- [x] Удаление сущности/пользователя
+- [x] Регистрация новой сущности/пользователя
+
+## :heavy_check_mark: Что проверяют WEB тесты (demowebshop)
+- [x] Авторизация через UI
+- [x] Авторизация через API без фикстуры с помощью авторизационной куки
+- [x] Добавление товара в корзину через API (POST-запрос)
+- [x] Добавление товара в корзину через API с помощью модели
+- [x] Добавление товара в корзину через API с помощью модели и сессии (`from requests import sessions`)
+
+<!-- Jenkins -->
+
+## <img width="5%" title="Jenkins" src="images/logo/jenkins.png"> Запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/003_t1me0ver_python_reqres_in/)
+
+Для запуска тестов из Jenkins:
+1. Нажмите кнопку "Собрать с параметрами"
+
+<p><img src=""/></p>
+
+2. Выберите параметры
+
+<p><img src="" alt="Jenkins"/></p>
+
+3. Нажмите "Собрать"
+
+<!-- Отчеты -->
+
+## :bar_chart: Отчеты о прохождении тестов доступны в Allure
+
+> При локальном запуске введите в командной строке: 
+```bash
+allure serve 
+```
+
+### <img width="3%" title="Allure" src="images/logo/allure_report.png"> Allure
+
+#### Примеры отображения тестов
+
+<img src="" alt="Allure"/>
+
+#### Во вкладке Graphs можно посмотреть графики о прохождении тестов, по их приоритезации, по времени прохождения и др.
+
+<img src="" alt="Allure"/>
+
+### <img width="2.5%" title="Telegram" src="images/logo/tg.png"> Telegram
+
+Настроена отправка отчета в Telegram
+
+<img src="" alt="Telegram"/>
