@@ -1,10 +1,15 @@
+import allure
 import requests
 from allure import step
+from allure_commons.types import Severity
 
 from apis.demoshop.model.demoqa import DemoQA, DemoQAWithSession
 from apis.demoshop.utils.get_auth import login, password
 
 
+@allure.tag('api')
+@allure.label('owner', 'ms_izegov')
+@allure.severity(Severity.CRITICAL)
 def test_add_to_cart_response(login, password):
     add_to_cart_url = "https://demowebshop.tricentis.com/addproducttocart/catalog/31/1/1"
     with step("Авторизуемся"):
@@ -29,6 +34,9 @@ def test_add_to_cart_response(login, password):
         """
 
 
+@allure.tag('api')
+@allure.label('owner', 'ms_izegov')
+@allure.severity(Severity.CRITICAL)
 def test_add_to_cart_response_with_model(login, password):
     with step("Авторизуемся"):
         demoqa = DemoQA()
@@ -42,6 +50,9 @@ def test_add_to_cart_response_with_model(login, password):
         assert "The product has been added" in result.json()['message']
 
 
+@allure.tag('api')
+@allure.label('owner', 'ms_izegov')
+@allure.severity(Severity.CRITICAL)
 def test_add_to_cart_response_with_model_and_session(login, password):
     with step("Авторизуемся"):
         demoqa = DemoQAWithSession()

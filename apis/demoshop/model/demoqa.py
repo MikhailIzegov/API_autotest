@@ -15,7 +15,6 @@ class DemoQA:
             allow_redirects=False
         )
         self.authorization_cookie = response.cookies.get("NOPCOMMERCE.AUTH")
-        # return self
 
     def add_to_cart(self, product="31/1/1", count=2):
         response = None
