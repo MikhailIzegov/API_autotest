@@ -64,16 +64,16 @@ API + WEB тесты  на платформе `demowebshop` - демонстра
 
 <!-- Jenkins -->
 
-## <img width="5%" title="Jenkins" src="images/logo/jenkins.png"> Запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/003_t1me0ver_python_reqres_in/)
+## <img width="5%" title="Jenkins" src="images/logo/jenkins.png"> Запуск тестов из Jenkins
 
 Для запуска тестов из Jenkins:
 1. Нажмите кнопку "Собрать с параметрами"
 
-<p><img src=""/></p>
+<p><img src="images/screenshots/Jenkins_build_with_params.jpg" alt="Jenkins"/></p>
 
 2. Выберите параметры
 
-<p><img src="" alt="Jenkins"/></p>
+<p><img src="images/screenshots/Jenkins_choose_tests.jpg" alt="Jenkins"/></p>
 
 3. Нажмите "Собрать"
 
@@ -90,14 +90,14 @@ allure serve
 
 #### Примеры отображения тестов
 
-<img src="" alt="Allure"/>
+<img src="images/screenshots/Allure_test_results.jpg" alt="Allure"/>
 
 #### Во вкладке Graphs можно посмотреть графики о прохождении тестов, по их приоритезации, по времени прохождения и др.
 
-<img src="" alt="Allure"/>
+<img src="images/screenshots/Allure_graphs.jpg" alt="Allure"/>
 
 ### <img width="2.5%" title="Telegram" src="images/logo/tg.png"> Telegram
 
 Настроена отправка отчета в Telegram
 
-<img src="" alt="Telegram"/>
+<img src="images/screenshots/Telegram_notifications.jpg" alt="Telegram"/>
